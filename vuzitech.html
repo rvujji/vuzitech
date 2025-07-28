@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuzi Tech Pvt Ltd - AI, Robotics & Software Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc; /* Light blue-gray background */
+        }
+        .section-heading {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            color: #1a202c; /* text-gray-900 */
+            margin-bottom: 2rem; /* mb-8 */
+            text-align: center;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            padding: 2rem; /* p-8 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .btn-primary {
+            background-color: #3b82f6; /* blue-500 */
+            color: #ffffff;
+            padding: 0.75rem 1.5rem; /* py-3 px-6 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600; /* font-semibold */
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); /* blue-400 to blue-600 */
+            color: #ffffff;
+            padding: 6rem 1rem;
+            text-align: center;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+        }
+        .footer {
+            background-color: #1f2937; /* gray-800 */
+            color: #d1d5db; /* gray-300 */
+            padding: 3rem 1rem;
+            text-align: center;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header/Navigation (Simple for now) -->
+    <header class="bg-white shadow-sm py-4 px-6 rounded-b-xl">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900 rounded-lg p-2 hover:bg-blue-50">Vuzi Tech Pvt Ltd</a>
+            <div class="space-x-4">
+                <a href="#products" class="text-gray-600 hover:text-blue-600 font-medium p-2 rounded-md hover:bg-blue-50">Products</a>
+                <a href="#software" class="text-gray-600 hover:text-blue-600 font-medium p-2 rounded-md hover:bg-blue-50">Software</a>
+                <a href="#consulting" class="text-gray-600 hover:text-blue-600 font-medium p-2 rounded-md hover:bg-blue-50">Consulting</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium p-2 rounded-md hover:bg-blue-50">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up">
+                Innovating the Future with AI, Robotics & Software
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in">
+                Your trusted partner in building cutting-edge technology products and delivering transformative IT solutions.
+            </p>
+            <a href="#contact" class="btn-primary inline-block animate-bounce-in">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Services/Objectives Section -->
+    <section id="products" class="py-16 px-6 bg-white rounded-xl mx-auto my-8 max-w-7xl shadow-xl">
+        <div class="container mx-auto">
+            <h2 class="section-heading">Our Core Offerings</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Objective 1: Design, Manufacture and Sale of Technology Products -->
+                <div class="card">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                        <span class="text-blue-500 mr-2">🤖</span> AI, Robotics & Tech Products
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                        From concept to deployment, we design, develop, manufacture, and integrate advanced hardware and software solutions. Specializing in AI, Machine Learning, Robotics, Automation, Computer Vision, NLP, IoT, and cyber-physical systems for diverse industries.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-500 space-y-2 mb-6">
+                        <li>Autonomous Robots & Drones</li>
+                        <li>Smart Devices & Embedded AI</li>
+                        <li>Custom AI Hardware Solutions</li>
+                        <li>Industrial Automation Systems</li>
+                    </ul>
+                    <a href="#contact" class="text-blue-600 hover:underline font-medium">Learn More &rarr;</a>
+                </div>
+
+                <!-- Objective 2: Software Development and IT Solutions -->
+                <div id="software" class="card">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                        <span class="text-green-500 mr-2">💻</span> Software Development & IT Solutions
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                        Crafting robust and scalable software tailored to your business needs. We build custom applications, modernize legacy systems, and provide end-to-end IT solutions to drive digital transformation.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-500 space-y-2 mb-6">
+                        <li>Custom ERP & CRM Solutions</li>
+                        <li>Mobile & Web Application Development</li>
+                        <li>Cloud Computing Services</li>
+                        <li>Data Analytics & Cybersecurity</li>
+                    </ul>
+                    <a href="#contact" class="text-blue-600 hover:underline font-medium">Explore Solutions &rarr;</a>
+                </div>
+
+                <!-- Objective 3: Technology Consulting and Managed Services -->
+                <div id="consulting" class="card">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                        <span class="text-purple-500 mr-2">💡</span> Tech Consulting & Managed Services
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                        Expert guidance and continuous support to optimize your technology investments. We offer strategic consulting, technical support, training, and comprehensive managed services for your AI, robotics, and IT infrastructure.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-500 space-y-2 mb-6">
+                        <li>AI/ML Strategy & Implementation</li>
+                        <li>Robotics Deployment & Integration</li>
+                        <li>IT Infrastructure Management</li>
+                        <li>Technical Training & Support</li>
+                    </ul>
+                    <a href="#contact" class="text-blue-600 hover:underline font-medium">Get Expert Advice &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section (Placeholder) -->
+    <section class="py-16 px-6 bg-gray-50 rounded-xl mx-auto my-8 max-w-7xl shadow-xl">
+        <div class="container mx-auto text-center">
+            <h2 class="section-heading">About Vuzi Tech Pvt Ltd</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+                We are a pioneering technology firm based in Visakhapatnam, India, dedicated to empowering businesses and consumers through innovative AI, robotics, and software solutions. Our mission is to bridge the gap between complex technology and practical applications, driving efficiency and fostering growth.
+            </p>
+            <a href="#contact" class="btn-primary inline-block">Our Story</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6 bg-blue-50 rounded-xl mx-auto my-8 max-w-7xl shadow-xl">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="section-heading">Contact Us</h2>
+            <p class="text-lg text-gray-700 text-center mb-8">
+                Have a project in mind or need expert consultation? Reach out to us!
+            </p>
+            <form class="space-y-6">
+                <div>
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                    <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your Name">
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your.email@example.com">
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                    <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your project or query..."></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Vuzi Tech Pvt Ltd. All rights reserved.</p>
+            <p class="mt-2 text-sm">
+                Vuzi Tech Pvt Ltd is a registered Private Limited Company in India.
+            </p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
