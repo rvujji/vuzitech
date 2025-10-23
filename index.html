@@ -1,211 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vuzi Tech Pvt Ltd - AI, Robotics & Software Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VuziTech - Enterprise AI Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8fafc; /* Light blue-gray background */
-        }
-        .section-heading {
-            font-size: 2.25rem; /* text-4xl */
-            font-weight: 700; /* font-bold */
-            color: #1a202c; /* text-gray-900 */
-            margin-bottom: 2rem; /* mb-8 */
-            text-align: center;
-        }
-        .card {
-            background-color: #ffffff;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-            padding: 2rem; /* p-8 */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .btn-primary {
-            background-color: #3b82f6; /* blue-500 */
-            color: #ffffff;
-            padding: 0.75rem 1.5rem; /* py-3 px-6 */
-            border-radius: 0.5rem; /* rounded-lg */
-            font-weight: 600; /* font-semibold */
-            transition: background-color 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #2563eb; /* blue-600 */
-        }
-        .hero-section {
-            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); /* blue-400 to blue-600 */
-            color: #ffffff;
-            padding: 6rem 1rem;
-            text-align: center;
-            border-bottom-left-radius: 2rem;
-            border-bottom-right-radius: 2rem;
-        }
-        .footer {
-            background-color: #1f2937; /* gray-800 */
-            color: #d1d5db; /* gray-300 */
-            padding: 3rem 1rem;
-            text-align: center;
-            border-top-left-radius: 2rem;
-            border-top-right-radius: 2rem;
-        }
+      :root {
+        --brand-color: #5865f2;
+        --brand-color-light: #707bf3;
+        --background-start: #0f0c29;
+        --background-mid: #302b63;
+        --background-end: #1c1c30;
+        --card-background: rgba(22, 27, 34, 0.55);
+        --text-primary: #e6edf3;
+        --text-secondary: #a0a8b3;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --input-border: #484f58;
+        --button-bg: var(--brand-color);
+        --button-hover-bg: var(--brand-color-light);
+        --section-padding: 6rem 2rem;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        color: var(--text-primary);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: var(--background-end);
+        background-image: 
+          radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.1) 0px, transparent 50%),
+          radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.1) 0px, transparent 50%),
+          radial-gradient(at 52% 99%, hsla(355, 98%, 76%, 0.1) 0px, transparent 50%),
+          radial-gradient(at 10% 29%, hsla(256, 96%, 68%, 0.1) 0px, transparent 50%),
+          radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.1) 0px, transparent 50%),
+          radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.1) 0px, transparent 50%),
+          radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.1) 0px, transparent 50%);
+        min-height: 100vh;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      
+      .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* --- Header --- */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+        background: rgba(15, 12, 41, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        transition: background-color 0.3s ease;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-decoration: none;
+      }
+      
+      .logo svg {
+        color: var(--brand-color);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--text-primary);
+      }
+      
+      .cta-button {
+        background-color: var(--button-bg);
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+      
+      .cta-button:hover {
+        background-color: var(--button-hover-bg);
+      }
+      
+      /* --- Hero Section --- */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding-top: 80px; /* Header height */
+        background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 12, 41, 0.7);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+      
+      .hero p {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+      }
+      
+      /* --- Sections General --- */
+      .section {
+        padding: var(--section-padding);
+      }
+      
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto 4rem auto;
+      }
+      
+      /* --- Trusted By Section --- */
+      .trusted-by {
+        padding-top: 0;
+        padding-bottom: 4rem;
+        background-color: var(--background-end);
+        position: relative;
+      }
+      
+      .trusted-by p {
+        text-align: center;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        font-weight: 500;
+      }
+
+      .logos-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        flex-wrap: wrap;
+        filter: grayscale(1) brightness(1.5);
+      }
+      
+      .logos-container svg {
+        height: 40px;
+        opacity: 0.7;
+      }
+      
+      /* --- Features Section --- */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      
+      .feature-card {
+        background: rgba(36, 36, 62, 0.4);
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2), 0 0 15px var(--brand-color-light);
+      }
+      
+      .feature-icon {
+        color: var(--brand-color);
+        margin-bottom: 1.5rem;
+      }
+      
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      
+      .feature-card p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      /* --- Why Us Section --- */
+      .why-us-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      
+      .why-us-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      }
+      
+      .why-us-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .why-us-text p {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+      
+      /* --- Contact Section --- */
+      .contact-section {
+         padding-bottom: 6rem;
+      }
+      .card {
+        width: 100%;
+        background: var(--card-background);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        margin-top: 4rem;
+      }
+
+      .contact-info {
+        padding: 4rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .contact-info .heading {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin: 0 0 1rem 0;
+      }
+
+      .contact-info .subheading {
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 3rem;
+      }
+
+      .info-item { display: flex; align-items: center; margin-bottom: 1.5rem; font-size: 0.95rem; }
+      .info-icon { color: var(--brand-color); margin-right: 1.2rem; flex-shrink: 0; }
+      .socials { margin-top: 2rem; display: flex; gap: 1.5rem; }
+      .social-icon { color: var(--text-secondary); transition: color 0.3s ease, transform 0.3s ease; }
+      .social-icon:hover { color: var(--brand-color); transform: scale(1.1); }
+      
+      /* --- Footer --- */
+      .footer {
+        background: var(--background-start);
+        padding: 4rem 2rem;
+        border-top: 1px solid var(--border-color);
+      }
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .footer-column .logo { margin-bottom: 1rem; }
+      .footer-column p { color: var(--text-secondary); line-height: 1.7; max-width: 300px; }
+      .footer-column h4 { font-size: 1.2rem; margin-bottom: 1rem; }
+      .footer-links { list-style: none; padding: 0; margin: 0; }
+      .footer-links li { margin-bottom: 0.75rem; }
+      .footer-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease; }
+      .footer-links a:hover { color: var(--text-primary); }
+      .footer-bottom { text-align: center; color: var(--text-secondary); padding-top: 3rem; margin-top: 3rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; }
+      
+      /* --- Responsive --- */
+      @media (max-width: 992px) {
+        .nav-links, .header .cta-button { display: none; } /* Hide for simplicity, could be a hamburger menu */
+        .hero h1 { font-size: 2.8rem; }
+        .hero p { font-size: 1.1rem; }
+        .why-us-content { grid-template-columns: 1fr; }
+        .why-us-image { margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;}
+        .contact-info { padding: 2.5rem; }
+        .contact-info .heading { font-size: 2rem; }
+      }
+      
+      @media (max-width: 768px) {
+        :root { --section-padding: 4rem 1rem; }
+        .main-container, .header-content { padding: 0 1rem; }
+        .hero h1 { font-size: 2.2rem; }
+        .logos-container { gap: 2rem; }
+        .logos-container svg { height: 30px; }
+      }
+
     </style>
-</head>
-<body>
-
-    <!-- Header/Navigation (Simple for now) -->
-    <header class="bg-white shadow-sm py-4 px-6 rounded-b-xl">
-        <nav class="container mx-auto flex justify-between items-center">
-            <!-- Logo Integration -->
-            <!-- <a href="#" class="rounded-lg p-2 hover:bg-blue-50">
-                <img src="logo7.png" alt="Vuzi Tech Pvt Ltd Logo" class="h-10">
-            </a> -->
-            <a href="#" class="rounded-lg p-2 hover:bg-blue-50">
-                <img src="logo1.jpeg" alt="Vuzi Tech Pvt Ltd Logo" class="h-10">
-            </a>
-            <div class="space-x-4">
-                <a href="#products" class="text-gray-600 hover:text-blue-600 font-medium p-2 rounded-md hover:bg-blue-50">Products</a>
-                <a href="#software" class="text-gray-600 hover:text-blue-600 font-medium p-2 rounded-md hover:bg-blue-50">Software</a>
-                <a href="#consulting" class="text-gray-600 hover:text-blue-600 font-medium p-2 rounded-md hover:bg-blue-50">Consulting</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium p-2 rounded-md hover:bg-blue-50">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container mx-auto max-w-4xl">
-            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up">
-                Innovating the Future with AI, Robotics & Software
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in">
-                Your trusted partner in building cutting-edge technology products and delivering transformative IT solutions.
-            </p>
-            <a href="#contact" class="btn-primary inline-block animate-bounce-in">Get in Touch</a>
-        </div>
-    </section>
-
-    <!-- Services/Objectives Section -->
-    <section id="products" class="py-16 px-6 bg-white rounded-xl mx-auto my-8 max-w-7xl shadow-xl">
-        <div class="container mx-auto">
-            <h2 class="section-heading">Our Core Offerings</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Objective 1: Design, Manufacture and Sale of Technology Products -->
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-                        <span class="text-blue-500 mr-2">🤖</span> AI, Robotics & Tech Products
-                    </h3>
-                    <p class="text-gray-600 mb-6">
-                        From concept to deployment, we design, develop, manufacture, and integrate advanced hardware and software solutions. Specializing in AI, Machine Learning, Robotics, Automation, Computer Vision, NLP, IoT, and cyber-physical systems for diverse industries.
-                    </p>
-                    <ul class="list-disc list-inside text-gray-500 space-y-2 mb-6">
-                        <li>Autonomous Robots & Drones</li>
-                        <li>Smart Devices & Embedded AI</li>
-                        <li>Custom AI Hardware Solutions</li>
-                        <li>Industrial Automation Systems</li>
-                    </ul>
-                    <a href="#contact" class="text-blue-600 hover:underline font-medium">Learn More &rarr;</a>
-                </div>
-
-                <!-- Objective 2: Software Development and IT Solutions -->
-                <div id="software" class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-                        <span class="text-green-500 mr-2">💻</span> Software Development & IT Solutions
-                    </h3>
-                    <p class="text-gray-600 mb-6">
-                        Crafting robust and scalable software tailored to your business needs. We build custom applications, modernize legacy systems, and provide end-to-end IT solutions to drive digital transformation.
-                    </p>
-                    <ul class="list-disc list-inside text-gray-500 space-y-2 mb-6">
-                        <li>Custom ERP & CRM Solutions</li>
-                        <li>Mobile & Web Application Development</li>
-                        <li>Cloud Computing Services</li>
-                        <li>Data Analytics & Cybersecurity</li>
-                    </ul>
-                    <a href="#contact" class="text-blue-600 hover:underline font-medium">Explore Solutions &rarr;</a>
-                </div>
-
-                <!-- Objective 3: Technology Consulting and Managed Services -->
-                <div id="consulting" class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-                        <span class="text-purple-500 mr-2">💡</span> Tech Consulting & Managed Services
-                    </h3>
-                    <p class="text-gray-600 mb-6">
-                        Expert guidance and continuous support to optimize your technology investments. We offer strategic consulting, technical support, training, and comprehensive managed services for your AI, robotics, and IT infrastructure.
-                    </p>
-                    <ul class="list-disc list-inside text-gray-500 space-y-2 mb-6">
-                        <li>AI/ML Strategy & Implementation</li>
-                        <li>Robotics Deployment & Integration</li>
-                        <li>IT Infrastructure Management</li>
-                        <li>Technical Training & Support</li>
-                    </ul>
-                    <a href="#contact" class="text-blue-600 hover:underline font-medium">Get Expert Advice &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section (Placeholder) -->
-    <section class="py-16 px-6 bg-gray-50 rounded-xl mx-auto my-8 max-w-7xl shadow-xl">
-        <div class="container mx-auto text-center">
-            <h2 class="section-heading">About Vuzi Tech Pvt Ltd</h2>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
-                We are a pioneering technology firm based in Visakhapatnam, India, dedicated to empowering businesses and consumers through innovative AI, robotics, and software solutions. Our mission is to bridge the gap between complex technology and practical applications, driving efficiency and fostering growth.
-            </p>
-            <a href="#contact" class="btn-primary inline-block">Our Story</a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 px-6 bg-blue-50 rounded-xl mx-auto my-8 max-w-7xl shadow-xl">
-        <div class="container mx-auto max-w-3xl">
-            <h2 class="section-heading">Contact Us</h2>
-            <p class="text-lg text-gray-700 text-center mb-8">
-                Have a project in mind or need expert consultation? Reach out to us!
-            </p>
-            <form class="space-y-6">
-                <div>
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
-                    <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your Name">
-                </div>
-                <div>
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                    <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your.email@example.com">
-                </div>
-                <div>
-                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
-                    <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your project or query..."></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container mx-auto">
-            <p>&copy; 2025 Vuzi Tech Pvt Ltd. All rights reserved.</p>
-            <p class="mt-2 text-sm">
-                Vuzi Tech Pvt Ltd is a registered Private Limited Company in India.
-            </p>
-            <div class="mt-4 space-x-4">
-                <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
-                <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
-                <a href="#" class="text-gray-400 hover:text-white text-sm">v0.1</a>
-            </div>
-        </div>
-    </footer>
-
-</body>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
