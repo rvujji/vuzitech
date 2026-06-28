@@ -1,120 +1,183 @@
-// ======================================
-// VUZI TECH WEBSITE
-// main.js
-// ======================================
+/*=========================================================
+    VUZI TECH WEBSITE V3
+=========================================================*/
 
-// Current Year for Footer
 document.addEventListener("DOMContentLoaded", () => {
 
+    initHeader();
 
-const yearElement = document.getElementById("currentYear");
+    initRevealAnimations();
 
-if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-}
+    initCounters();
 
+    initSmoothScroll();
 
 });
 
-// ======================================
-// Simple Fade In Animation
-// ======================================
+/*=========================================================
+HEADER
+=========================================================*/
 
-const observer = new IntersectionObserver(
+function initHeader(){
 
+    const header = document.querySelector(".header");
 
-(entries) => {
+    function updateHeader(){
 
-    entries.forEach(entry => {
+        if(window.scrollY > 80){
 
-        if (entry.isIntersecting) {
+            header.classList.add("scrolled");
 
-            entry.target.classList.add("show");
+        }else{
+
+            header.classList.remove("scrolled");
 
         }
 
-    });
-
-},
-
-{
-    threshold: 0.15
-}
-
-
-);
-
-document.querySelectorAll(".fade-in").forEach(el => {
-
-
-observer.observe(el);
-
-
-});
-
-// ======================================
-// Smooth Scroll Support
-// ======================================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-
-anchor.addEventListener('click', function (e) {
-
-    const target = document.querySelector(this.getAttribute('href'));
-
-    if (target) {
-
-        e.preventDefault();
-
-        target.scrollIntoView({
-            behavior: 'smooth'
-        });
-
     }
 
-});
+    updateHeader();
 
+    window.addEventListener("scroll", updateHeader);
 
-});
-
-// ======================================
-// Header Shadow On Scroll
-// ======================================
-
-window.addEventListener("scroll", () => {
-
-
-const header = document.querySelector(".header");
-
-if (!header) return;
-
-if (window.scrollY > 50) {
-
-    header.style.boxShadow =
-        "0 6px 20px rgba(0,0,0,0.08)";
-
-} else {
-
-    header.style.boxShadow =
-        "0 2px 20px rgba(0,0,0,0.04)";
 }
 
+/*=========================================================
+REVEAL ANIMATION
+=========================================================*/
 
-});
+function initRevealAnimations(){
 
-// ======================================
-// Future Mobile Menu Placeholder
-// ======================================
+    const elements = document.querySelectorAll(
+        "section, .service-card, .industry-card, .fleet-item, .timeline-item"
+    );
 
-function toggleMobileMenu() {
+    const observer = new IntersectionObserver((entries)=>{
 
+        entries.forEach(entry=>{
 
-const menu = document.querySelector("nav");
+            if(entry.isIntersecting){
 
-if (!menu) return;
+                entry.target.classList.add("active");
 
-menu.classList.toggle("mobile-open");
+                observer.unobserve(entry.target);
 
+            }
+
+        });
+
+    },{
+        threshold:0.15
+    });
+
+    elements.forEach(el=>{
+
+        el.classList.add("reveal");
+
+        observer.observe(el);
+
+    });
+
+}
+
+/*=========================================================
+COUNTER ANIMATION
+=========================================================*/
+
+function initCounters(){
+
+    const counters=document.querySelectorAll(".hero-stat h2");
+
+    const observer=new IntersectionObserver(entries=>{
+
+        entries.forEach(entry=>{
+
+            if(!entry.isIntersecting) return;
+
+            animateCounter(entry.target);
+
+            observer.unobserve(entry.target);
+
+        });
+
+    });
+
+    counters.forEach(counter=>observer.observe(counter));
+
+}
+
+function animateCounter(counter){
+
+    const original=counter.innerText;
+
+    const value=parseInt(original.replace(/[^0-9]/g,""));
+
+    if(isNaN(value)) return;
+
+    let current=0;
+
+    const increment=Math.max(1,Math.ceil(value/60));
+
+    const interval=setInterval(()=>{
+
+        current+=increment;
+
+        if(current>=value){
+
+            counter.innerText=original;
+
+            clearInterval(interval);
+
+        }else{
+
+            if(original.includes("₹")){
+
+                counter.innerText="₹"+current+"+";
+
+            }
+
+            else if(original.includes("+")){
+
+                counter.innerText=current+"+";
+
+            }
+
+            else{
+
+                counter.innerText=current;
+
+            }
+
+        }
+
+    },25);
+
+}
+
+/*=========================================================
+SMOOTH SCROLL
+=========================================================*/
+
+function initSmoothScroll(){
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+        anchor.addEventListener("click",function(e){
+
+            const target=document.querySelector(this.getAttribute("href"));
+
+            if(!target) return;
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior:"smooth"
+
+            });
+
+        });
+
+    });
 
 }
