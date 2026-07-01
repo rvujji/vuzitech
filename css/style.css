@@ -3739,3 +3739,43 @@ TECHNOLOGY RESPONSIVE
 }
 
 }
+
+/*=========================================================
+404 PAGE
+=========================================================*/
+
+.error-hero{
+
+    background:
+    linear-gradient(
+        rgba(8,30,70,.85),
+        rgba(8,30,70,.85)
+    ),
+    url("../assets/company/company.webp")
+    center center/cover;
+
+}
+
+.error-content{
+
+    max-width:700px;
+
+    text-align:center;
+
+    margin:auto;
+
+}
+
+.error-content h1{
+
+    font-size:4.5rem;
+
+}
+
+.error-content p{
+
+    margin:30px auto;
+
+    max-width:620px;
+
+}
